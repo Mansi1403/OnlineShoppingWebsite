@@ -1,0 +1,30 @@
+.topImage{
+    height:60vh;
+    background-image: linear-gradient(to right,#D7D9D7,#C9C5CB);
+    width:100%;
+    justify-content: center;
+    align-self: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.recentAdded{
+   
+    margin-top:5%;
+    
+}
+.recentAdded hr{
+    height: 4px;
+}
+.recentHeading{
+    background-color: #8FD1D1;
+    width:200px;
+    height:50px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border-radius: 100px;
+    transform: translateY(-85%);
+    margin-left:5%;
+}
