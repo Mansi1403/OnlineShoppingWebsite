@@ -23,17 +23,27 @@
                 </h1>
                 <h5 class="loginSubHeading">To explore a wide varieties of Product Range</h5>
 
-                <form class="loginForm">
+                <form class="loginForm" [formGroup]="userLoginForm" (ngSubmit)="onSubmit()">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control inputFields" placeholder="Email">
+                            <input formControlName="email" type="text" class="form-control inputFields" placeholder="Email">
+                            <div *ngIf="submitted &&userLoginForm.controls['email'].errors" class="error">
+                                <div class="text-danger"  *ngIf="userLoginForm.controls['email'].errors['required']">
+                                    Email is required
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="password" class="form-control inputFields" placeholder="Password">
+                            <input formControlName="password" type="password" class="form-control inputFields" placeholder="Password">
+                            <div *ngIf="submitted &&userLoginForm.controls['password'].errors" class="error">
+                                <div class="text-danger"  *ngIf="userLoginForm.controls['password'].errors['required']">
+                                    Password is required
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button class="signupBtn">LogIn</button>
@@ -82,17 +92,27 @@
                 </h1>
                 <h5 class="loginSubHeading">To grow your Bussiness</h5>
 
-                <form class="loginForm">
+                <form class="loginForm" [formGroup]="retailerLoginForm" (ngSubmit)="onRetailerFormSubmit()">
                     <div class="row">
                         <div class="col">
-                            <input type="text" class="form-control inputFields" placeholder="Email">
+                            <input formControlName="email" type="text" class="form-control inputFields" placeholder="Email">
+                            <div *ngIf="submitted &&retailerLoginForm.controls['email'].errors" class="error">
+                                <div class="text-danger"  *ngIf="retailerLoginForm.controls['email'].errors['required']">
+                                    Email is required
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <br>
                     <br>
                     <div class="row">
                         <div class="col">
-                            <input type="password" class="form-control inputFields" placeholder="Password">
+                            <input formControlName="password" type="password" class="form-control inputFields" placeholder="Password">
+                            <div *ngIf="submitted &&retailerLoginForm.controls['password'].errors" class="error">
+                                <div class="text-danger"  *ngIf="retailerLoginForm.controls['password'].errors['required']">
+                                    Password is required
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <button class="signupBtn">LogIn</button>

@@ -10,6 +10,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -26,7 +28,10 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
     AppRoutingModule,
     BrowserAnimationsModule,
     MatIconModule,
-    MatMenuModule
+    MatMenuModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
 
     
   ],

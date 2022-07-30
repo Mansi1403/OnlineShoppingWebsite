@@ -45,14 +45,14 @@
                           
 
                   <span class="right-content ">
-                      <a class="two-icons " href="#" routerLink="/login" routerLinkActive="active"><mat-icon>account_circle</mat-icon></a>
+                      <a *ngIf="!showName" class="two-icons " href="#" routerLink="/login" routerLinkActive="active"><mat-icon>account_circle</mat-icon></a>
+                    
+                    <button *ngIf="showName" type="button" class="btn btn-outline-secondary">Hello {{userName}}</button>
                       <a class="two-icons" href="#">	<mat-icon>add_shopping_cart</mat-icon></a>
                      
                 
                   </span>
-       
-                     
-
+                  
                   </div>
               </nav>
               
