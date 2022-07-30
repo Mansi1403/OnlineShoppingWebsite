@@ -12,6 +12,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ProductDetailComponent } from './product-detail/product-detail.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { AddProductComponent } from './Retailer/add-product/add-product.component';
 
 
 
@@ -21,7 +22,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     LoginComponent,
     SignupComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    AddProductComponent
   ],
   imports: [
     BrowserModule,

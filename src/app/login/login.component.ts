@@ -42,10 +42,10 @@ export class LoginComponent implements OnInit {
       password:['', Validators.required],
     });
 
-
+  
   }
 
-
+ 
 
        /////// User Signup /////
        onSubmit() {
@@ -72,7 +72,12 @@ export class LoginComponent implements OnInit {
     
           this.message = this.userResponse.message
           alert(this.userResponse.message)
+          //window.location.reload();
           this.router.navigate(['home'])
+  .then(() => {
+    window.location.reload();
+  });
+          //this.router.navigate(['home'])
           
         },(error)=>{
           this.error=true
@@ -117,7 +122,11 @@ export class LoginComponent implements OnInit {
       this.message = this.retailerResponse.message
       alert(this.retailerResponse.message)
 
-      this.router.navigate(['home'])
+      this.router.navigate(['add-product'])
+      .then(() => {
+        window.location.reload();
+      });
+     // this.router.navigate(['add-product'])
     },(error)=>{
       this.error=true
       this.message = error.error.message

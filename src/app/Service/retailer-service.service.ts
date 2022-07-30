@@ -19,4 +19,10 @@ export class RetailerService {
   loginRetailer(retailer:Retailer){
     return this.http.post(this.baseUrl + '/login-retailer',retailer)
   }
+
+  getRetailerById(retailerId:number){
+    return this.http.get<{}>(this.baseUrl + '/get-retailer-byId/' + retailerId);
+  }
+
+
 }

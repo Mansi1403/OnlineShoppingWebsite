@@ -8,7 +8,7 @@
       <div class="container-fluid topNavbar">
           <div class="row">
           <!--Navbar-->
-          <nav class="navbar navbar-expand-lg topNavbar fixed-top">
+          <nav *ngIf="userNav" class="navbar navbar-expand-lg topNavbar fixed-top">
               <a class="navbar-brand" href="#">
                 <img src="../assets/images/dotSTORE.png" width="200" height="70" class="d-inline-block align-top navImg" alt="">
               </a>
@@ -50,11 +50,58 @@
                     <button *ngIf="showName" type="button" class="btn btn-outline-secondary">Hello {{userName}}</button>
                       <a class="two-icons" href="#">	<mat-icon>add_shopping_cart</mat-icon></a>
                      
-                
+                      <button type="button" routerLink="/add-product" class="btn btn-outline-secondary">AP</button>
                   </span>
                   
                   </div>
               </nav>
+
+
+
+              <!--other nav bar-->
+              <nav *ngIf="retailerNav" class="navbar navbar-expand-lg topNavbar fixed-top">
+                <a class="navbar-brand" href="#">
+                  <img src="../assets/images/dotSTORE.png" width="200" height="70" class="d-inline-block align-top navImg" alt="">
+                </a>
+              
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-bars togg"></i>
+                        </button>
+  
+                    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                        <ul class="navbar-nav  ms-auto navbar-fixed navList">
+                            <li class="nav-item active myText">
+                                <a class="nav-link myText" href="#">Home</a>
+                              </li>
+                              <li class="nav-item myText">
+                                <a class="nav-link myText" href="#">Products</a>
+                              </li>
+                              <li class="nav-item myText">
+                                <a class="nav-link myText" href="#">Profile</a>
+                              </li>
+                            
+  
+                        </ul>
+  
+                       
+          
+                            
+  
+                    <span class="right-content ">
+                        <a *ngIf="!showName" class="two-icons " href="#" routerLink="/login" routerLinkActive="active"><mat-icon>account_circle</mat-icon></a>
+                      
+                      <button *ngIf="showName" type="button" class="btn btn-outline-secondary">Hello {{userName}}</button>
+                        <a class="two-icons" href="#">	<mat-icon>add_shopping_cart</mat-icon></a>
+                       
+                        
+                    </span>
+                    
+                    </div>
+                </nav>
+
+<!--other nav bar end-->
+
+
               
           </div>
 
