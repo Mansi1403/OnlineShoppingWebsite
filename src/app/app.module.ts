@@ -13,6 +13,8 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { AddProductComponent } from './Retailer/add-product/add-product.component';
+import { DisplayRetailersComponent } from './Admin/display-retailers/display-retailers.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -23,7 +25,8 @@ import { AddProductComponent } from './Retailer/add-product/add-product.componen
     LoginComponent,
     SignupComponent,
     ProductDetailComponent,
-    AddProductComponent
+    AddProductComponent,
+    DisplayRetailersComponent
   ],
   imports: [
     BrowserModule,
@@ -34,6 +37,7 @@ import { AddProductComponent } from './Retailer/add-product/add-product.componen
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FontAwesomeModule
 
     
   ],
