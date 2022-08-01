@@ -139,19 +139,16 @@
           </p>
           <p>
             <label for="">Image</label>
-            <input type="file">
+            <input (change)="onChange($event)" type="file">
+            
           </p>
-          <p>
-            <label for="">Image</label>
-            <input type="file">
-          </p>
-          <p>
-            <label for="">Image</label>
-            <input type="file">
-          </p>
+
+          <button class="upload-button" (click)="onUpload()">
+            Upload
+          </button>
+          <!-- <img alt="xxx" class="xxx" [src]="imageUrl"> -->
           <p>
             <button type="submit">Add Product</button>
-            <!-- <button>Send</button> -->
           </p>
         </form>
       </div>

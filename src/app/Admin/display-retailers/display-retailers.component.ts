@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { faCoffee,faPencil ,faTrashAlt,faUserPen} from '@fortawesome/free-solid-svg-icons';
+import { faCoffee,faPencil ,faTrashAlt,faUserPen,faSearch} from '@fortawesome/free-solid-svg-icons';
 
-import { Router } from '@angular/router';
+import { Router,ActivatedRoute } from '@angular/router';
 import { Retailer } from 'src/app/Modules/Retailer';
 import { AdminService } from 'src/app/Service/admin-service.service';
 import { RetailerService } from 'src/app/Service/retailer-service.service';
@@ -18,6 +18,7 @@ export class DisplayRetailersComponent implements OnInit {
   faPencil=faPencil;
   faTrashAlt=faTrashAlt;
   faUserPen=faUserPen
+  faSearch=faSearch
 
   retailerForm!:FormGroup
 
@@ -37,7 +38,9 @@ export class DisplayRetailersComponent implements OnInit {
     authenticate: false
   }
 
-  constructor(private fb: FormBuilder,private router: Router,private userService: UserService,private retailerService:RetailerService,private adminService:AdminService) { }
+  constructor(private fb: FormBuilder,private router: Router,private activateRouter:ActivatedRoute,private userService: UserService,private retailerService:RetailerService,private adminService:AdminService) { }
+
+  test: string = ''
 
   ngOnInit(): void {
 
@@ -59,6 +62,8 @@ export class DisplayRetailersComponent implements OnInit {
       this.responseObject = data
       this.retailerList = this.responseObject.data
 
+     
+
       console.log("In iNit method : ",data)
     },(error)=>{
       console.log(error)
@@ -67,6 +72,10 @@ export class DisplayRetailersComponent implements OnInit {
 
   }
 
+  filterData(){
+    this.retailerList = this.retailerList.filter(c => console.log(c))
+
+  }
 
 
   editRetailer() : void {
@@ -90,6 +99,15 @@ export class DisplayRetailersComponent implements OnInit {
   }
 
 
+  editRetailerForm(retailer:Retailer){
+    console.log("From selected retailer : ",retailer)
+    // now send this whole object to another component
+
+    //update-retailer
+    this.router.navigate(['update-retailer'],{
+      queryParams:{data:btoa(JSON.stringify(retailer))}
+    })
+  }
 
   onEdit(retailer:Retailer){
 

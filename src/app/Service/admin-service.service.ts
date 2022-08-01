@@ -14,6 +14,9 @@ export class AdminService {
 
   // Register User
 
+  loginAdmin(retailer:Retailer){
+    return this.http.post(this.baseUrl + '/login-admin',retailer)
+  }
   getAllRetailers(){
     return this.http.get<{}>(this.baseUrl + '/get-all-retailers');
   }

@@ -6,6 +6,21 @@
     
   </div>
 
+  <div class="container">
+    <div class="container input-group form-group my-3">
+      <div class="input-group-prepend">
+          <span class="input-group-text py-3" id="basic-addon1">
+             
+              <fa-icon [icon]="faSearch"></fa-icon>
+          </span>
+        </div>
+      <input type="text" name="search" [(ngModel)]="test" class="form-control" placeholder="Search Retailer">
+      <span class="glyphicon glyphicon-search form-control-feedback"></span>
+  </div>
+  </div>
+ 
+
+
 <table class="styled-table" style="border:1px solid black;margin-left:auto;margin-right:auto;">
     
     <thead>
@@ -20,7 +35,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let retailer of retailerList">
+        <tr *ngFor="let retailer of retailerList | filter:test">
             <td>{{retailer.retailer_id}}</td>
             <td>{{retailer.shopName}}</td>
             <td>{{retailer.email}}</td>
@@ -28,10 +43,13 @@
             <td>{{retailer.authenticate ? 'Yes' : 'No'}}</td>
             <td>
             
-                <button type="button" class="btn btn-success btn-sm mx-2" data-bs-toggle="modal" (click)="onEdit(retailer)" data-bs-target="#exampleModal">
+                <!-- <button type="button" class="btn btn-success btn-sm mx-2" data-bs-toggle="modal" (click)="onEdit(retailer)" data-bs-target="#exampleModal">
+                    <fa-icon [icon]="faPencil"></fa-icon>
+                  </button> -->
+                  
+                  <button type="button" class="btn btn-success btn-sm mx-2" data-bs-toggle="modal" (click)="editRetailerForm(retailer)">
                     <fa-icon [icon]="faPencil"></fa-icon>
                   </button>
-                  
                
                   
             </td>

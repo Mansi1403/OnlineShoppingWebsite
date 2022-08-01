@@ -6,13 +6,31 @@ import { SignupComponent } from './signup/signup.component';
 import { AddProductComponent } from './Retailer/add-product/add-product.component';
 import { AppComponent } from './app.component';
 import {DisplayRetailersComponent} from './Admin/display-retailers/display-retailers.component'
+import { UpdateRetailerComponent } from './Admin/update-retailer/update-retailer.component';
+import { LoginAdminComponent } from './Admin/login-admin/login-admin.component';
+import { AllProductsComponent } from './Retailer/all-products/all-products.component';
+import { UpdateProductComponent } from './Retailer/update-product/update-product.component';
+import { ProductComponent } from './product/product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
+import { CartComponent } from './cart/cart.component';
 
 const routes: Routes = [
   {path:'signup', component:SignupComponent},
   {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent},
+
+  {path:'product', component:ProductComponent},
+  {path:'product-detail', component:ProductDetailComponent},
+  {path:'cart',component:CartComponent},
+
+  {path:'admin-login', component:LoginAdminComponent},
   {path:'add-product', component:AddProductComponent},
-  {path:'display-retailers', component:DisplayRetailersComponent}
+  {path:'display-retailers', component:DisplayRetailersComponent},
+  {path:'update-retailer', component:UpdateRetailerComponent},
+  {path:'all-products', component:AllProductsComponent},
+  {path:'update-product', component:UpdateProductComponent}
+
+  
 ];
 
 @NgModule({

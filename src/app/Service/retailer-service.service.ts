@@ -23,6 +23,7 @@ export class RetailerService {
   getRetailerById(retailerId:number){
     return this.http.get<{}>(this.baseUrl + '/get-retailer-byId/' + retailerId);
   }
+  
 
 
 }

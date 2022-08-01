@@ -15,6 +15,15 @@ import { HttpClientModule } from '@angular/common/http';
 import { AddProductComponent } from './Retailer/add-product/add-product.component';
 import { DisplayRetailersComponent } from './Admin/display-retailers/display-retailers.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { ImagekitioAngularModule } from 'imagekitio-angular';
+import { UpdateRetailerComponent } from './Admin/update-retailer/update-retailer.component';
+import { LoginAdminComponent } from './Admin/login-admin/login-admin.component';
+import { UpdateProductComponent } from './Retailer/update-product/update-product.component';
+import { AllProductsComponent } from './Retailer/all-products/all-products.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
+import { ProductComponent } from './product/product.component';
+import { CartComponent } from './cart/cart.component';
 
 
 
@@ -26,7 +35,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     SignupComponent,
     ProductDetailComponent,
     AddProductComponent,
-    DisplayRetailersComponent
+    DisplayRetailersComponent,
+    UpdateRetailerComponent,
+    LoginAdminComponent,
+    UpdateProductComponent,
+    AllProductsComponent,
+    ProductComponent,
+    CartComponent,
+   
   ],
   imports: [
     BrowserModule,
@@ -37,7 +53,19 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    Ng2SearchPipeModule,
+    CarouselModule,
+  //   ImagekitioAngularModule.forRoot({
+
+  //     publicKey: "public_uyc/OZswmVYeM7rvj19wIBHmFaM=", // or environment.publicKey
+
+  //     urlEndpoint: "https://ik.imagekit.io/ol5ujroevjc", // or environment.urlEndpoint
+  //     privateKey:"",
+
+  //   //  authenticationEndpoint: "http://www.yourserver.com/auth" // or environment.authenticationEndpoint
+
+  // })
 
     
   ],

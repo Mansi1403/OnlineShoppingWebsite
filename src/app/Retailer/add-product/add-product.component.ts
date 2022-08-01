@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Category } from 'src/app/Modules/Category';
 import { Product } from 'src/app/Modules/Product';
 import { Retailer } from 'src/app/Modules/Retailer';
@@ -19,6 +20,7 @@ export class AddProductComponent implements OnInit {
   categoryList:any=[]
   responseData!:any
   retailerDetails!:any
+  productCreated!:any
   productObject:Product = {
     product_id: 0,
     name: '',
@@ -30,8 +32,20 @@ export class AddProductComponent implements OnInit {
     category: new Category,
     retailer: new Retailer
   }
+  imageResponse!:any
+  imageUrl:string=''
 
-    constructor(private fb: FormBuilder,private categoryService: CategoryService,private retailerService:RetailerService,private productService:ProductService) {    }
+  alertMessage:string=''
+
+  // Variable to store shortLink from api response
+  shortLink: string = "";
+  loading: boolean = false; // Flag variable
+  file!: File  // Variable to store file
+
+
+
+
+    constructor(private fb: FormBuilder,private router: Router,private categoryService: CategoryService,private retailerService:RetailerService,private productService:ProductService) {    }
     
    
 
@@ -44,7 +58,8 @@ export class AddProductComponent implements OnInit {
       pQuantity: ['', Validators.required],
       pDescription: ['', Validators.required],
       pPrice: ['', Validators.required],
-      pAvailable: ['', Validators.required]
+      pAvailable: ['', Validators.required],
+      pImageUrl:[]
     });
 
 
@@ -88,7 +103,6 @@ export class AddProductComponent implements OnInit {
 
 
 
-
   onSubmit(): void {    
 
     this.submitted=true
@@ -105,6 +119,7 @@ export class AddProductComponent implements OnInit {
       this.productObject.stock = this.addProductForm.get('pQuantity')?.value
       this.productObject.description = this.addProductForm.get('pDescription')?.value
       this.productObject.price = this.addProductForm.get('pPrice')?.value
+      this.productObject.imageUrl = this.imageUrl
       this.addProductForm.get('pAvailable')?.value == 'Yes' ? this.productObject.available = true : this.productObject.available = false
       this.productObject.retailer = this.retailerDetails.data
   
@@ -118,6 +133,10 @@ export class AddProductComponent implements OnInit {
       this.productService.addProduct(this.productObject).subscribe((data)=>{
   
         console.log("Hope so : ",data)
+       // this.productCreated = data
+        //this.alertMessage = this.productCreated.message
+       // alert(this.alertMessage)
+        //this.router.navigate(['add-products'])
       },(error)=>{
   
         console.log("Error : ",error);
@@ -129,7 +148,29 @@ export class AddProductComponent implements OnInit {
 
   }
 
+
+  // On file Select
+  onChange(event:any) {
+    this.file = event.target.files[0];
+}
   
+     // OnClick of button Upload
+     onUpload() {
+      this.loading = !this.loading;
+      console.log(this.file);
+      this.productService.upload(this.file).subscribe(
+          (event: any) => {
+              if (typeof (event) === 'object') {
+                console.log("response : ",event);
+                  // Short link via api response
+                  this.shortLink = event.link;
+                  this.imageResponse = event
+                  this.imageUrl = this.imageResponse.fileDownloadUri
+                  this.loading = false; // Flag variable 
+              }
+          }
+      );
+  }
 
 
 

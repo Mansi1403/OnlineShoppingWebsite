@@ -1,0 +1,88 @@
+
+
+
+
+  <div class="contain">
+
+    <div class="wrapper">
+      <div class="contacts">
+        <h3>Add Product</h3>
+        <h4></h4>
+        
+      </div>
+  
+      <div class="form">
+        <h3>Add Product in Store</h3>
+        <form [formGroup]="addProductForm" (ngSubmit)="onSubmit()">
+          <p>
+            <label for="">Product Name</label>
+
+            <label *ngIf="submitted &&addProductForm.controls['pName'].errors" class="error">
+                <label class="text-danger"  *ngIf="addProductForm.controls['pName'].errors['required']"> Name is required</label>
+            </label>
+
+            <input  formControlName="pName" type="text">
+            
+           
+         
+          <p>
+            <label for="">Price</label>
+            <label *ngIf="submitted &&addProductForm.controls['pPrice'].errors" class="error">
+                <label class="text-danger"  *ngIf="addProductForm.controls['pPrice'].errors['required']"> Price is required</label>
+            </label>
+            <input formControlName="pPrice" type="number">
+          </p>
+          
+          <p>
+            <label for="">Stock</label>
+            <label *ngIf="submitted &&addProductForm.controls['pQuantity'].errors" class="error">
+                <label class="text-danger"  *ngIf="addProductForm.controls['pQuantity'].errors['required']"> Enter Stock</label>
+            </label>
+            <input formControlName="pQuantity" type="number">
+          </p>
+          <p>
+            <label for="">Category</label>
+            <label *ngIf="submitted &&addProductForm.controls['pCategory'].errors" class="error">
+                <label class="text-danger"  *ngIf="addProductForm.controls['pCategory'].errors['required']">Select Category</label>
+            </label>
+            <select formControlName="pCategory" class="form-select" aria-label="Default select example">
+                <option *ngFor="let category of categoryList" [ngValue]="category">{{category.name}}</option>
+              </select>
+          </p>
+          <p>
+            <label for="">Availability</label>
+            <label *ngIf="submitted &&addProductForm.controls['pAvailable'].errors" class="error">
+                <label class="text-danger"  *ngIf="addProductForm.controls['pAvailable'].errors['required']">Choose Avaiaility</label>
+            </label>
+            <select formControlName="pAvailable" class="form-select" aria-label="Default select example">
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+               
+              </select>
+          </p>
+          <p>
+            <label for="">Product Description</label>
+            <label *ngIf="submitted &&addProductForm.controls['pDescription'].errors" class="error">
+                <label class="text-danger"  *ngIf="addProductForm.controls['pDescription'].errors['required']">Write Description</label>
+            </label>
+            <input formControlName="pDescription" type="text">
+          </p>
+          <!-- <p>
+            <label for="">Image</label>
+            <input (change)="onChange($event)" type="file">
+            
+          </p> -->
+
+          <!-- <button class="upload-button" (click)="onUpload()">
+            Upload
+          </button> -->
+        
+          <p>
+            <button type="submit">Update Product</button>
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  
